@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ItemLista extends StatelessWidget {
+  final String titulo;
+  final DateTime data;
+  final String nomeFull;
+
+  final df = DateFormat("dd/MM/yyyy");
+
+  ItemLista(
+      {@required this.titulo, @required this.data, @required this.nomeFull});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,18 +22,18 @@ class ItemLista extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Alura Timer",
+                this.titulo,
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               Text(
-                "31/12/2021",
+                df.format(this.data),
                 style: TextStyle(fontSize: 16),
               ),
             ],
           ),
           SizedBox(height: 10),
           Text(
-            "andreferreiraalves/alura-timer",
+            this.nomeFull,
             style: TextStyle(fontSize: 16),
           ),
         ],

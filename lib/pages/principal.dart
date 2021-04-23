@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_sobre/pages/sobre.dart';
 import 'home.dart';
 
 class Principal extends StatefulWidget {
@@ -12,9 +13,7 @@ class _PrincipalState extends State<Principal> {
 
   static List<Widget> _widGetOptions = <Widget>[
     Home(),
-    Text(
-      "Sobre",
-    ),
+    Sobre(),
   ];
 
   void _onItemTapped(int index) {
