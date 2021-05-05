@@ -10,17 +10,17 @@ class Principal extends StatefulWidget {
 class _PrincipalState extends State<Principal> {
   int _selected = 0;
   String _captionTitle = "Home";
+  List<Widget> _actions = [];
 
   static List<Widget> _widGetOptions = <Widget>[
     Home(),
     Sobre(),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selected = index;
-      _captionTitle = index == 0 ? "Home" : "Sobre";
-    });
+  @override
+  void initState() {
+    _actions = [botaoPesquisa()];
+    super.initState();
   }
 
   @override
@@ -28,6 +28,7 @@ class _PrincipalState extends State<Principal> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_captionTitle),
+        actions: _actions,
       ),
       body: Center(
         child: _widGetOptions.elementAt(_selected),
@@ -49,4 +50,19 @@ class _PrincipalState extends State<Principal> {
       ),
     );
   }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selected = index;
+      _captionTitle = index == 0 ? "Home" : "Sobre";
+
+      _actions = [];
+      if (index == 0) _actions = [botaoPesquisa()];
+    });
+  }
+
+  Widget botaoPesquisa() => IconButton(
+        icon: Icon(Icons.search),
+        onPressed: () {},
+      );
 }

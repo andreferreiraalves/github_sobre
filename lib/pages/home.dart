@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_sobre/components/item_lista.dart';
+import 'package:github_sobre/components/loader.dart';
 import 'package:github_sobre/github.service.dart';
 
 import '../info_github.model.dart';
@@ -10,7 +11,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  List<InfoGitHub> repos = [];
+  List<InfoGitHub> repos;
 
   @override
   void initState() {
@@ -24,35 +25,18 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    // return ListView(
-    //   children: ListTile.divideTiles(
-    //     context: context,
-    //     tiles: [
-    //       ListTile(
-    //         title: ItemLista(
-    //           titulo: "Alura 1",
-    //           data: DateTime.now(),
-    //           nomeFull: "andreferreiraalves/alura-timer",
-    //         ),
-    //       ),
-    //     ],
-    //   ).toList(),
-    // );
-    //
-    return this.lista();
+    return Loader(object: repos, callBack: lista);
   }
 
-  Widget lista() {
+  Widget lista(BuildContext context) {
     return ListView.builder(
       itemCount: repos.length,
       itemBuilder: (context, index) {
         var repo = this.repos[index];
-        return ListTile(
-          title: ItemLista(
-            titulo: repo.name,
-            nomeFull: repo.fullName,
-            data: repo.createdAt,
-          ),
+        return ItemLista(
+          titulo: repo.name,
+          nomeFull: repo.fullName,
+          data: repo.createdAt,
         );
       },
     );
