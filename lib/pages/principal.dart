@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:github_sobre/components/custom_search_delegate.dart';
 import 'package:github_sobre/pages/sobre.dart';
 import 'home.dart';
 
@@ -63,6 +64,11 @@ class _PrincipalState extends State<Principal> {
 
   Widget botaoPesquisa() => IconButton(
         icon: Icon(Icons.search),
-        onPressed: () {},
+        onPressed: () {
+          showSearch(
+            context: context,
+            delegate: CustomSearchDelegate(),
+          );
+        },
       );
 }

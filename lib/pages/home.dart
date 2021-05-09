@@ -18,8 +18,9 @@ class _HomeState extends State<Home> {
     super.initState();
 
     GitHubService().getAll().then((value) {
-      repos = value;
-      setState(() {});
+      setState(() {
+        repos = value;
+      });
     });
   }
 
