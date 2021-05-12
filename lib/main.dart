@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:github_sobre/pages/principal.dart';
-import 'package:github_sobre/themes/light.theme.dart';
+import 'package:github_sobre/settings.dart';
+import 'package:github_sobre/themes/dark.theme.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Github Sobre',
-      theme: lightTheme(),
+      // theme: Settings.currentTheme(),
+      theme: darkTheme(),
       home: Principal(),
     );
   }

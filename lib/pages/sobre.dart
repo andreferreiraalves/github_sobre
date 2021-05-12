@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../settings.dart';
+
 class Sobre extends StatefulWidget {
   @override
   _SobreState createState() => _SobreState();
@@ -26,8 +28,18 @@ class _SobreState extends State<Sobre> {
             Switch(
               value: modoEscuro,
               onChanged: (bool selected) {
+                if (selected)
+                  Settings.theme = 'light';
+                else
+                  Settings.theme = 'dark';
+
                 setState(() {
                   modoEscuro = selected;
+
+                  if (selected)
+                    Settings.theme = 'light';
+                  else
+                    Settings.theme = 'dark';
                 });
               },
             )

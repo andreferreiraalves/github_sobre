@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 const brightness = Brightness.light;
-//const lightColor = const Color(0xFFFFFFFF);
+const primaryColor = Colors.blue;
+const lightColor = Colors.blue;
+const backGroundColor = const Color(0xFFF5F5F5);
 
 ThemeData lightTheme() {
   return ThemeData(
@@ -35,7 +37,7 @@ ThemeData lightTheme() {
     // primaryIconTheme:
     // primaryTextTheme:
     // sliderTheme:
-    primaryColor: Colors.blue,
+    primaryColor: primaryColor,
     accentColor: Colors.white,
     // fontFamily: 'Montserrat',
     // buttonColor: Color(0xFF00C569),
